@@ -24,7 +24,7 @@ class Program
                 numbers.Add(number);
             }
         }
-        int sum = -1;
+        int sum = 0;
 
         foreach (int num in numbers)
         {
