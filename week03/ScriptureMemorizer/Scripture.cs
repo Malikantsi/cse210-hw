@@ -3,27 +3,30 @@ using System.Linq;
 public class Scripture
 {
     private Reference _reference;
-    private List<string> _words;
+    private List<Word> _words = new List<Word>();
 
 
     public Scripture(Reference reference, string text)
     {
         _reference = reference;
-        _words = text.Split(' ').ToList();
+        foreach (var word in text.Split(' '))
+        {
+            _words.Add(new Word(word));
+        }
     }
 
-    public void HideRandomWords(int numbwerToHide)
+    public void HideRandomWords(int numberToHide)
     {
         Random random = new Random();
 
         int hidden = 0;
 
-        while (hidden < 3)
+        while (hidden < numberToHide)
         {
             int randomIndex = random.Next(_words.Count);
-            if (_words[randomIndex] != "_")
+            if (_words[randomIndex].IsHidden() == false)
             {
-                _words[randomIndex] = "_";
+                _words[randomIndex].Hide();
                 hidden++;
             }
 
@@ -33,14 +36,21 @@ public class Scripture
 
     public string GetDisplayText()
     {
-        return string.Join(" ", _words);
+        string displayText = _reference.GetDisplayText() + " - ";
+
+        foreach (Word word in _words)
+        {
+            displayText += word.GetDisplayText() + " ";
+        }
+
+        return displayText;
     }
 
     public bool IsCompletelyHidden()
     {
-        foreach (string word in _words)
+        foreach (Word word in _words)
         {
-            if (word != "_")
+            if (!word.IsHidden())
             {
                 return false;
             }
