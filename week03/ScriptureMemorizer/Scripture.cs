@@ -18,17 +18,18 @@ public class Scripture
     public void HideRandomWords(int numberToHide)
     {
         Random random = new Random();
-
+        int attempts = 0;
         int hidden = 0;
 
-        while (hidden < numberToHide)
+        while (hidden < numberToHide && attempts < 100)
         {
             int randomIndex = random.Next(_words.Count);
-            if (_words[randomIndex].IsHidden() == false)
+            if (!_words[randomIndex].IsHidden())
             {
                 _words[randomIndex].Hide();
                 hidden++;
             }
+            attempts++;
 
         }
 
