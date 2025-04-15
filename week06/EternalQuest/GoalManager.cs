@@ -15,12 +15,12 @@ public class GoalManager
         do
         {
             Console.WriteLine("Menu options :");
-            Console.WriteLine("1. Create new goal");
+            Console.WriteLine("1.Create new goal");
             Console.WriteLine("2.List goals");
             Console.WriteLine("3.Save goals");
             Console.WriteLine("4.Load goals");
             Console.WriteLine("5.Record Event");
-            Console.WriteLine("6. Quit");
+            Console.WriteLine("6.Quit");
 
             choice = int.Parse(Console.ReadLine());
 
@@ -119,7 +119,7 @@ public class GoalManager
         Console.WriteLine("Which type of goal would you like to create: ");
         int goalChoice = int.Parse(Console.ReadLine());
 
-        Console.Write("What is the name of your goal? :");
+        Console.Write("What is the name of your goal? ");
         string goalName = Console.ReadLine();
         Console.Write("what is the short description of it? ");
         string goalDescription = Console.ReadLine();
