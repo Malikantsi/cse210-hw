@@ -7,7 +7,7 @@ public class EternalGoal : Goal
 
     public override void RecordEvent()
     {
-        Console.WriteLine($"Congratulations! You have  completed your goal{_shortName}");
+        Console.WriteLine($"Congratulations! You have  completed your goal {_shortName}");
 
     }
 
@@ -18,12 +18,12 @@ public class EternalGoal : Goal
 
     public override string GetDetailsString()
     {
-        return $"[ ] {_shortName} ( {_description})";
+        return $"[ ] {_shortName} ({_description})";
     }
 
     public override string GetStringRepresentation()
     {
-        return $"EternalGoal|{_shortName}|{_description}| points {_points}";
+        return $"EternalGoal|{_shortName}|{_description}|{_points}";
     }
 }
 

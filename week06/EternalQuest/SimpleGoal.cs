@@ -6,14 +6,14 @@ public class SimpleGoal : Goal
     public SimpleGoal(string name, string description, string points)
         : base(name, description, points)
     {
-        
+
         _isComplete = false;
     }
 
     public override void RecordEvent()
     {
         _isComplete = true;
-        Console.WriteLine($"Congratulations! You have  completed your goal{_shortName}");
+        Console.WriteLine($"Congratulations! You have  completed your goal {_shortName}");
     }
 
     public override bool IsComplete()
@@ -33,11 +33,16 @@ public class SimpleGoal : Goal
             status = "[ ]";
         }
 
-        return $"{status} {_shortName} ( {_description})";
+        return $"{status} {_shortName} ({_description})";
     }
 
     public override string GetStringRepresentation()
     {
-        return $"SimpleGoal|{_shortName}|{_description}| points {_points}|{_isComplete}";
+        return $"SimpleGoal|{_shortName}|{_description}|{_points}|{_isComplete}";
+    }
+
+    public void SetComplete(bool complete)
+    {
+        _isComplete = complete;
     }
 }

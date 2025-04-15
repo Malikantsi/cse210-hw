@@ -1,10 +1,10 @@
-public class CheckedGoal : Goal
+public class CheckListGoal : Goal
 {
     private int _amountCompleted;
     private int _target;
     private int _bonus;
 
-    public CheckedGoal(string name, string description, string points, int target, int bonus)
+    public CheckListGoal(string name, string description, string points, int target, int bonus)
         : base(name, description, points)
     {
         _target = target;
@@ -36,7 +36,12 @@ public class CheckedGoal : Goal
 
     public override string GetStringRepresentation()
     {
-        return $"ChecklistGoal|{_shortName}|{_description}|{_points}|{_bonus}|{_target}|{_amountCompleted}";
+        return $"CheckListGoal|{_shortName}|{_description}|{_points}|{_bonus}|{_target}|{_amountCompleted}";
+    }
+
+    public void SetAmountCompleted(int count)
+    {
+        _amountCompleted = count;
     }
 
 
